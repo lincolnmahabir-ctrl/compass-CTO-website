@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compass CTO</title>
+<meta name="description" content="Compass CTO provides executive technology leadership for K–12 schools: strategy, cybersecurity, vendor oversight, and AI policy, delivered by a contracted Director of Technology without a full-time hire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230f2340'/%3E%3Cpath d='M16 5l4 11-4 11-4-11z' fill='%23d4a649'/%3E%3Cpath d='M16 16l4 0-4 11-4-11z' fill='%23ffffff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --navy-950:#0a1830;
+  --navy-900:#0f2340;
+  --navy-800:#17325a;
+  --navy-700:#234575;
+  --slate-600:#4a5b73;
+  --slate-500:#64748b;
+  --slate-300:#cbd5e1;
+  --slate-200:#e2e8f0;
+  --slate-100:#f1f4f8;
+  --paper:#fbfcfd;
+  --white:#ffffff;
+  --gold:#d4a649;
+  --gold-soft:#f3e6c6;
+  --teal:#2a9d8f;
+  --teal-soft:#d7efec;
+  --ink:#0f1b2d;
+
+  --bg:var(--paper);
+  --surface:var(--white);
+  --surface-2:var(--slate-100);
+  --text:var(--ink);
+  --muted:var(--slate-600);
+  --line:var(--slate-200);
+
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius:14px;
+  --max:1160px;
+  --shadow:0 1px 2px rgba(15,35,64,.06), 0 8px 24px rgba(15,35,64,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.lead{font-size:19px;color:var(--muted);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s ease, background .15s ease, border-color .15s ease;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:var(--navy-950)}
+.btn-gold:hover{background:#e0b558}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.btn-navy{background:var(--navy-900);color:#fff}
+.btn-navy:hover{background:var(--navy-800)}
+.btn svg{width:16px;height:16px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(10,24,48,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand svg{width:34px;height:34px}
+.brand-name{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.01em}
+.brand-name span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:15px;font-weight:500}
+.nav-links a:hover{color:#fff}
+.nav-links .btn{padding:10px 18px;font-size:14px}
+.nav-toggle{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
+.nav-toggle svg{width:26px;height:26px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 85% 20%, #1d3d6b 0%, transparent 60%), linear-gradient(180deg,var(--navy-950),var(--navy-900));color:#fff;padding:96px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,62px);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{color:rgba(255,255,255,.78)}
+.hero .eyebrow{color:var(--gold)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:500px;justify-self:end;width:100%}
+.hero-art svg{width:100%;height:100%}
+.needle{transform-origin:250px 250px;animation:settle 2.6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes settle{0%{transform:rotate(-70deg)}55%{transform:rotate(14deg)}75%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+.pulse{animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.needle,.pulse{animation:none}html{scroll-behavior:auto}}
+
+.trust{margin-top:80px;border-top:1px solid rgba(255,255,255,.1)}
+.trust ul{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0}
+.trust li{display:flex;align-items:center;gap:14px;padding:26px 24px;color:rgba(255,255,255,.85);font-size:15px;font-weight:500}
+.trust li+li{border-left:1px solid rgba(255,255,255,.1)}
+.trust svg{width:26px;height:26px;flex:none;color:var(--gold)}
+
+/* ---------- Sections ---------- */
+section{scroll-margin-top:72px}
+.section{padding:112px 0}
+.section-alt{background:var(--surface-2)}
+.section-head{max-width:760px;margin-bottom:56px}
+.section-head h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 18px}
+
+/* Problem */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.problem h2{font-size:clamp(30px,3.4vw,42px);margin:14px 0 22px}
+.cost-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
+.cost-card h3{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-500);margin-bottom:28px}
+.bar-row{margin-bottom:26px}
+.bar-label{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;margin-bottom:10px}
+.bar-label strong{font-family:var(--serif);font-size:22px}
+.bar{height:14px;border-radius:999px;background:var(--slate-100);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px}
+.bar .full{width:100%;background:var(--slate-300)}
+.bar .frac{background:linear-gradient(90deg,var(--teal),#3bb3a4)}
+.cost-note{font-size:13px;color:var(--slate-500);margin-top:8px}
+.pressures{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--navy-800)}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.card-icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--navy-900);color:var(--gold);margin-bottom:24px}
+.card-icon svg{width:28px;height:28px}
+.card h3{font-size:24px;margin-bottom:12px}
+.card p{color:var(--muted)}
+
+/* How it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:step;position:relative}
+.step{padding:0 28px 0 0;position:relative}
+.step-num{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--teal);color:var(--teal);font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:22px;position:relative;z-index:1}
+.steps::before{content:"";position:absolute;top:24px;left:24px;right:15%;height:2px;background:repeating-linear-gradient(90deg,var(--slate-300) 0 8px,transparent 8px 14px)}
+.step h3{font-size:22px;margin-bottom:10px}
+.step p{color:var(--muted)}
+
+/* Services / tiers */
+.services-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:end;margin-bottom:56px}
+.services-intro h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 18px}
+.ladder-note{display:flex;gap:14px;align-items:flex-start;background:var(--gold-soft);border-radius:var(--radius);padding:20px 22px;font-size:15px;color:var(--navy-900)}
+.ladder-note svg{width:24px;height:24px;flex:none;margin-top:2px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:34px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.tier.featured{background:var(--navy-900);color:#fff;border-color:var(--navy-900);position:relative}
+.tier.featured .tier-desc,.tier.featured li{color:rgba(255,255,255,.82)}
+.tier-badge{position:absolute;top:-13px;left:30px;background:var(--gold);color:var(--navy-950);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.tier-level{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.tier.featured .tier-level{color:var(--gold)}
+.tier h3{font-size:26px;margin:8px 0 18px}
+.price{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.price small{font-size:14px;color:var(--slate-500)}
+.tier.featured .price small{color:rgba(255,255,255,.6)}
+.price strong{font-family:var(--serif);font-size:48px;font-weight:600;line-height:1}
+.price span{font-size:15px;color:var(--slate-500)}
+.tier.featured .price span{color:rgba(255,255,255,.6)}
+.tier-desc{color:var(--muted);font-size:15px;margin:10px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.tier.featured .tier-desc{border-color:rgba(255,255,255,.15)}
+.tier ul{list-style:none;padding:0;margin:0 0 8px;display:grid;gap:12px}
+.tier li{display:flex;gap:12px;font-size:15px;color:var(--text)}
+.tier li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--teal)}
+.tier.featured li svg{color:var(--gold)}
+.tier li.plus{font-weight:600}
+
+.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:64px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px}
+.panel h3{font-size:24px;margin-bottom:8px}
+.panel>p{color:var(--muted);margin-bottom:24px}
+.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feature{display:flex;gap:14px;align-items:flex-start}
+.feature-ic{width:40px;height:40px;border-radius:10px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;flex:none}
+.feature-ic svg{width:20px;height:20px}
+.feature strong{display:block;font-size:15px}
+.feature span{font-size:14px;color:var(--muted)}
+.not-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.not-list li{display:flex;gap:12px;font-size:15px;color:var(--muted)}
+.not-list svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--slate-500)}
+
+/* Assessment */
+.assessment{background:linear-gradient(135deg,var(--navy-900),var(--navy-800));color:#fff;border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;overflow:hidden}
+.assessment::after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(212,166,73,.25);box-shadow:0 0 0 60px rgba(212,166,73,.04),0 0 0 120px rgba(212,166,73,.03)}
+.assessment h2{font-size:clamp(28px,3.2vw,40px);margin:14px 0 18px}
+.assessment p{color:rgba(255,255,255,.8)}
+.assessment .eyebrow{color:var(--gold)}
+.deliverables{display:grid;gap:14px;position:relative;z-index:1}
+.deliverable{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 20px}
+.deliverable-ic{width:44px;height:44px;border-radius:12px;background:rgba(212,166,73,.15);color:var(--gold);display:grid;place-items:center;flex:none}
+.deliverable-ic svg{width:22px;height:22px}
+.deliverable strong{display:block;font-size:16px}
+.deliverable span{font-size:14px;color:rgba(255,255,255,.7)}
+
+/* Pricing table */
+.pricing-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.pricing-grid h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 18px}
+.compare{margin-top:30px;display:grid;gap:12px}
+.compare-row{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:15px}
+.compare-row strong{font-family:var(--serif);font-size:20px}
+.compare-row.hl{background:var(--teal-soft);border-color:transparent}
+.table-wrap{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:16px}
+caption{text-align:left;padding:24px 28px 0;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-500)}
+th,td{padding:18px 28px;text-align:left}
+thead th{font-size:14px;font-weight:600;color:var(--slate-500);border-bottom:1px solid var(--line)}
+tbody tr+tr td,tbody tr+tr th{border-top:1px solid var(--line)}
+tbody th{font-weight:600}
+td{font-family:var(--serif);font-size:20px;font-weight:500;font-variant-numeric:tabular-nums}
+td.hl{color:var(--navy-700)}
+.table-foot{padding:18px 28px;background:var(--surface-2);font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.table-foot svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--teal)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center}
+.portrait{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,var(--navy-800),var(--navy-950))}
+.portrait svg{width:100%;height:100%}
+.portrait-tag{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,255,255,.96);border-radius:14px;padding:16px 18px;color:var(--ink)}
+.portrait-tag strong{display:block;font-family:var(--serif);font-size:20px}
+.portrait-tag span{font-size:14px;color:var(--muted)}
+.about-grid h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 22px}
+.about-grid p+p{margin-top:18px}
+.about-grid .body{color:var(--muted)}
+.expertise{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.expertise div{padding:16px;border-radius:12px;background:var(--surface-2);font-size:14px;font-weight:500;color:var(--navy-800);display:flex;gap:10px;align-items:center}
+.expertise svg{width:18px;height:18px;flex:none;color:var(--teal)}
+.partner-line{margin-top:30px;padding-left:20px;border-left:3px solid var(--gold);font-family:var(--serif);font-size:20px;color:var(--navy-900)}
+
+/* Contact */
+.contact{background:var(--navy-950);color:#fff}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.contact h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 18px}
+.contact .lead{color:rgba(255,255,255,.75)}
+.contact .eyebrow{color:var(--gold)}
+.contact-direct{margin-top:36px;display:grid;gap:16px}
+.contact-direct a,.contact-direct div{display:flex;gap:14px;align-items:center;color:#fff;text-decoration:none;font-size:16px}
+.contact-direct svg{width:22px;height:22px;color:var(--gold);flex:none}
+form{background:var(--surface);color:var(--text);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:14px;font-weight:600;color:var(--navy-900)}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--slate-200);border-radius:10px;background:var(--paper);color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(42,157,143,.18)}
+textarea{min-height:120px;resize:vertical}
+form .btn{justify-self:start;grid-column:1/-1}
+.form-note{grid-column:1/-1;font-size:13px;color:var(--slate-500)}
+.form-status{grid-column:1/-1;font-size:14px;color:var(--teal);min-height:1em}
+
+/* Footer */
+footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.08);padding:36px 0;font-size:14px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand-name{font-size:18px}
+.foot a{color:rgba(255,255,255,.75);text-decoration:none}
+.foot a:hover{color:#fff}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.problem-grid,.services-intro,.assessment,.pricing-grid,.about-grid,.contact-grid,.included-grid{grid-template-columns:1fr}
+  .hero-art{justify-self:center;max-width:380px;order:-1}
+  .cards,.tiers{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .steps::before{display:none}
+  .about-grid{gap:48px}
+  .portrait{max-width:420px}
+  .assessment{padding:40px 28px}
+}
+@media (max-width:820px){
+  .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--navy-950);padding:8px 16px 20px;border-bottom:1px solid rgba(255,255,255,.1);display:none}
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:14px 0;font-size:17px}
+  .nav-links .btn{margin-top:10px;display:inline-flex}
+  .nav-toggle{display:block}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hero{padding-top:56px}
+  .section{padding:80px 0}
+  .trust ul{grid-template-columns:1fr}
+  .trust li+li{border-left:0;border-top:1px solid rgba(255,255,255,.1)}
+  .trust li{padding:18px 0}
+  .feature-list,.expertise{grid-template-columns:1fr}
+  form{grid-template-columns:1fr;padding:24px}
+  th,td{padding:14px 12px}
+  td{font-size:17px}
+  caption{padding:20px 12px 0}
+  .table-foot{padding:16px 12px}
+  .cost-card,.panel{padding:26px}
+  .hero-ctas .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Reusable icon sprites -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H16a3.5 3.5 0 0 0 0-7H8a3.5 3.5 0 0 1 0-7h7.5"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.6-3.4 8.3-8 9-4.6-.7-8-4.4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9.5 3v3M14.5 3v3M9.5 18v3M14.5 18v3M3 9.5h3M3 14.5h3M18 9.5h3M18 14.5h3"/><path d="M10 14.5l2-5 2 5M10.7 13h2.6"/></g></symbol>
+    <symbol id="i-years" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5"/></g></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/><path d="M21 10v5"/></g></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4-2 5 2 5-2 4 2v6l-4 2-5 3-5-3-4-2z"/><path d="M12 8l-3 3c1 1 2.5 1 3.5 0L15 9"/></g></symbol>
+    <symbol id="i-calls" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></g></symbol>
+    <symbol id="i-visit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 17v-3M12 17v-6M15 17v-4"/></g></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.2v.1"/></g></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.8v.1"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></g></symbol>
+    <symbol id="i-compass" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M32 9l6.5 23L32 55l-6.5-23z" fill="#d4a649"/>
+      <path d="M32 32h6.5L32 55l-6.5-23z" fill="#ffffff" opacity=".92"/>
+      <circle cx="32" cy="32" r="3" fill="#0a1830"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="#top" aria-label="Compass CTO home">
+      <svg style="color:#fff"><use href="#i-compass"/></svg>
+      <span class="brand-name">Compass <span>CTO</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a class="btn btn-gold" href="#contact">Request an Assessment</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Contracted Director of Technology for K–12</p>
+      <h1>The technology director your district needs, <em>at a fraction of the cost.</em></h1>
+      <p class="lead">Compass CTO embeds a seasoned technology director with your team, leading strategy, cybersecurity, vendor oversight, and AI policy. We work alongside your existing staff and MSP and never replace them.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#contact">Request a Technology Health Assessment <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 500 500">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2a9d8f" stop-opacity=".28"/>
+            <stop offset="100%" stop-color="#2a9d8f" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d4a649" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#d4a649" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+        <circle cx="250" cy="250" r="240" fill="url(#glow)"/>
+        <!-- network constellation -->
+        <g stroke="#5b7fb0" stroke-opacity=".45" stroke-width="1">
+          <line x1="70" y1="120" x2="160" y2="70"/><line x1="160" y1="70" x2="300" y2="48"/>
+          <line x1="300" y1="48" x2="420" y2="110"/><line x1="420" y1="110" x2="460" y2="240"/>
+          <line x1="460" y1="240" x2="420" y2="380"/><line x1="420" y1="380" x2="300" y2="450"/>
+          <line x1="300" y1="450" x2="170" y2="440"/><line x1="170" y1="440" x2="65" y2="360"/>
+          <line x1="65" y1="360" x2="40" y2="240"/><line x1="40" y1="240" x2="70" y2="120"/>
+          <line x1="160" y1="70" x2="250" y2="250"/><line x1="420" y1="110" x2="250" y2="250"/>
+          <line x1="420" y1="380" x2="250" y2="250"/><line x1="65" y1="360" x2="250" y2="250"/>
+          <line x1="40" y1="240" x2="250" y2="250"/><line x1="300" y1="450" x2="250" y2="250"/>
+        </g>
+        <g fill="#8fb0dc">
+          <circle cx="70" cy="120" r="4"/><circle cx="160" cy="70" r="5"/><circle cx="300" cy="48" r="4"/>
+          <circle cx="420" cy="110" r="5"/><circle cx="460" cy="240" r="4"/><circle cx="420" cy="380" r="5"/>
+          <circle cx="300" cy="450" r="4"/><circle cx="170" cy="440" r="5"/><circle cx="65" cy="360" r="4"/>
+          <circle cx="40" cy="240" r="5"/>
+        </g>
+        <g fill="#2a9d8f">
+          <circle class="pulse" cx="420" cy="110" r="10" fill-opacity=".35"/>
+          <circle class="pulse" cx="65" cy="360" r="10" fill-opacity=".35" style="animation-delay:1.1s"/>
+          <circle class="pulse" cx="300" cy="450" r="10" fill-opacity=".35" style="animation-delay:2.1s"/>
+        </g>
+        <!-- compass dial -->
+        <circle cx="250" cy="250" r="150" fill="#0a1830" stroke="url(#ring)" stroke-width="2.5"/>
+        <circle cx="250" cy="250" r="128" fill="none" stroke="#ffffff" stroke-opacity=".12"/>
+        <g stroke="#ffffff" stroke-opacity=".35" stroke-width="1.4">
+          <line x1="250" y1="104" x2="250" y2="118"/><line x1="250" y1="382" x2="250" y2="396"/>
+          <line x1="104" y1="250" x2="118" y2="250"/><line x1="382" y1="250" x2="396" y2="250"/>
+          <line x1="146.8" y1="146.8" x2="155" y2="155"/><line x1="353.2" y1="146.8" x2="345" y2="155"/>
+          <line x1="146.8" y1="353.2" x2="155" y2="345"/><line x1="353.2" y1="353.2" x2="345" y2="345"/>
+        </g>
+        <g font-family="Source Serif 4, Georgia, serif" font-size="18" font-weight="600" fill="#ffffff" fill-opacity=".85" text-anchor="middle">
+          <text x="250" y="146">N</text><text x="250" y="368">S</text>
+          <text x="364" y="256">E</text><text x="136" y="256">W</text>
+        </g>
+        <g class="needle">
+          <path d="M250 150 L268 250 L250 350 L232 250 Z" fill="#d4a649"/>
+          <path d="M250 250 L268 250 L250 350 L232 250 Z" fill="#ffffff" fill-opacity=".9"/>
+          <circle cx="250" cy="250" r="9" fill="#0a1830" stroke="#d4a649" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="trust">
+    <ul class="wrap">
+      <li><svg><use href="#i-years"/></svg>20+ years leading K–12 technology</li>
+      <li><svg><use href="#i-school"/></svg>Districts, charters, and private schools</li>
+      <li><svg><use href="#i-handshake"/></svg>Partners with your IT team and MSP</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="section problem">
+  <div class="wrap problem-grid">
+    <div class="reveal">
+      <p class="eyebrow">Why Compass CTO</p>
+      <h2>A full-time Director of Technology costs $195k+ a year. Most schools don't need all of it full-time.</h2>
+      <p class="lead">Small and mid-size districts face the same technology pressures as large ones. A full-time executive hire is expensive and hard to recruit. Compass CTO delivers that executive-level leadership at a fraction of the cost and works as part of your team.</p>
+      <div class="pressures" aria-label="Pressures facing districts">
+        <span class="pill">Cybersecurity threats</span>
+        <span class="pill">Aging infrastructure</span>
+        <span class="pill">Vendor sprawl</span>
+        <span class="pill">E-Rate deadlines</span>
+        <span class="pill">Generative AI</span>
+      </div>
+    </div>
+    <div class="cost-card reveal" role="figure" aria-label="Annual cost comparison: full-time Director of Technology versus Compass CTO for a 5,000-student district">
+      <h3>Annual leadership cost · 5,000-student district</h3>
+      <div class="bar-row">
+        <div class="bar-label"><span>Full-time Director of Technology</span><strong>$195k+</strong></div>
+        <div class="bar"><span class="full"></span></div>
+        <p class="cost-note">~$140k salary plus benefits and overhead</p>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Compass CTO · Full Stack with AI</span><strong>from $45k</strong></div>
+        <div class="bar"><span class="frac" style="width:23%"></span></div>
+      </div>
+      <div class="bar-row" style="margin-bottom:0">
+        <div class="bar-label"><span>Compass CTO · Standard</span><strong>from $25k</strong></div>
+        <div class="bar"><span class="frac" style="width:13%"></span></div>
+        <p class="cost-note">Illustrative "starting at" figures. Final pricing is set per engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE DO ================= -->
+<section class="section section-alt" id="what">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2>Executive leadership across the three areas that matter most</h2>
+      <p class="lead">Your technicians keep the lights on. We provide the leadership above them: setting direction, managing risk, and making sure every technology dollar supports teaching and learning.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-icon"><svg><use href="#i-route"/></svg></div>
+        <h3>Strategy &amp; Roadmaps</h3>
+        <p>Multi-year technology plans tied to educational outcomes, with disciplined budgeting and lifecycle management so you can plan refreshes ahead of time.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon"><svg><use href="#i-shield"/></svg></div>
+        <h3>Cybersecurity Leadership</h3>
+        <p>Risk oversight, policy, and management that protects students, staff, and data, with clear reporting your board can follow.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon"><svg><use href="#i-ai"/></svg></div>
+        <h3>AI Policy &amp; Oversight</h3>
+        <p>Responsible AI guidance for operations and instruction, built for K–12 realities: student privacy, academic integrity, and staff readiness.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>A clear path from first conversation to ongoing leadership</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Assess</h3>
+        <p>A fixed-fee Technology Health Assessment shows where you stand: risks, gaps, and the opportunities that will matter most.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Plan</h3>
+        <p>You receive a 3-year roadmap, prioritized quick wins, and an executive risk summary, written for superintendents and boards.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Lead</h3>
+        <p>An annual retainer keeps executive leadership in place: weekly working sessions, written issue tracking, and monthly status reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section section-alt" id="services">
+  <div class="wrap">
+    <div class="services-intro">
+      <div class="reveal">
+        <p class="eyebrow">Services</p>
+        <h2>One leadership practice, three levels of coverage</h2>
+        <p class="lead">Compass CTO provides executive technology leadership for K–12, covering strategy, lifecycle and vendor oversight, cybersecurity, and AI policy. It is priced per student per year, and you don't need a full-time hire or to replace your technicians or MSP.</p>
+      </div>
+      <div class="ladder-note reveal">
+        <svg><use href="#i-layers"/></svg>
+        <p><strong>A cumulative ladder.</strong> Each tier includes everything in the tier below it, so you can start where you are and add coverage as your needs grow.</p>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <article class="tier reveal">
+        <p class="tier-level">Tier 1</p>
+        <h3>Standard</h3>
+        <div class="price"><small>from</small><strong>$5</strong><span>/ student / year</span></div>
+        <p class="tier-desc">Core executive leadership for planning, budgets, vendors, and your technology team.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Strategic planning &amp; multi-year roadmaps</li>
+          <li><svg><use href="#i-check"/></svg>Budgeting &amp; lifecycle management (E-Rate where eligible)</li>
+          <li><svg><use href="#i-check"/></svg>Vendor, contract &amp; infrastructure leadership</li>
+          <li><svg><use href="#i-check"/></svg>Staff mentorship &amp; leadership</li>
+          <li><svg><use href="#i-check"/></svg>Project governance</li>
+          <li><svg><use href="#i-check"/></svg>Cybersecurity: light / advisory</li>
+        </ul>
+      </article>
+      <article class="tier reveal">
+        <p class="tier-level">Tier 2</p>
+        <h3>Standard + Cybersecurity</h3>
+        <div class="price"><small>from</small><strong>$7</strong><span>/ student / year</span></div>
+        <p class="tier-desc">Adds full cybersecurity management to core leadership.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Everything in Standard</li>
+          <li class="plus"><svg><use href="#i-check"/></svg>Full cybersecurity management</li>
+        </ul>
+      </article>
+      <article class="tier featured reveal">
+        <span class="tier-badge">Most complete</span>
+        <p class="tier-level">Tier 3</p>
+        <h3>Full Stack with AI</h3>
+        <div class="price"><small>from</small><strong>$9</strong><span>/ student / year</span></div>
+        <p class="tier-desc">Complete coverage, including AI policy and oversight across your district.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Everything in Standard + Cybersecurity</li>
+          <li class="plus"><svg><use href="#i-check"/></svg>AI policy &amp; oversight for operations</li>
+          <li class="plus"><svg><use href="#i-check"/></svg>AI policy &amp; oversight for instruction</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="included-grid">
+      <div class="panel reveal">
+        <h3>What's included in every retainer</h3>
+        <p>A consistent rhythm so your leadership team always knows where things stand.</p>
+        <div class="feature-list">
+          <div class="feature"><div class="feature-ic"><svg><use href="#i-calls"/></svg></div><div><strong>Two one-hour calls</strong><span>every week</span></div></div>
+          <div class="feature"><div class="feature-ic"><svg><use href="#i-ticket"/></svg></div><div><strong>Written request system</strong><span>for issues and questions</span></div></div>
+          <div class="feature"><div class="feature-ic"><svg><use href="#i-visit"/></svg></div><div><strong>Annual on-site visit</strong><span>in person, once a year</span></div></div>
+          <div class="feature"><div class="feature-ic"><svg><use href="#i-report"/></svg></div><div><strong>Monthly status reports</strong><span>on every open item</span></div></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <h3>What we don't do</h3>
+        <p>We work alongside your team, and we're clear about where our role ends.</p>
+        <ul class="not-list">
+          <li><svg><use href="#i-x"/></svg>Replace your MSP or helpdesk</li>
+          <li><svg><use href="#i-x"/></svg>Provide legal or audit services, or act as your procurement authority</li>
+          <li><svg><use href="#i-x"/></svg>Guarantee grants, E-Rate funding, or certifications</li>
+          <li><svg><use href="#i-x"/></svg>Operate a 24/7 security operations center</li>
+          <li><svg><use href="#i-x"/></svg>Work directly with students, parents, or non-administrative staff; we work with district and school administration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASSESSMENT ================= -->
+<section class="section" id="assessment">
+  <div class="wrap">
+    <div class="assessment reveal">
+      <div>
+        <p class="eyebrow">Where every engagement begins</p>
+        <h2>Start with a Technology Health Assessment.</h2>
+        <p>A fixed-fee engagement that gives you a clear, board-ready picture of your technology program before you commit to anything ongoing.</p>
+        <div class="hero-ctas"><a class="btn btn-gold" href="#contact">Request your assessment <svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="deliverables">
+        <div class="deliverable"><div class="deliverable-ic"><svg><use href="#i-map"/></svg></div><div><strong>3-year technology roadmap</strong><span>Priorities, sequencing, and budget implications</span></div></div>
+        <div class="deliverable"><div class="deliverable-ic"><svg><use href="#i-bolt"/></svg></div><div><strong>Prioritized quick wins</strong><span>Improvements you can act on right away</span></div></div>
+        <div class="deliverable"><div class="deliverable-ic"><svg><use href="#i-alert"/></svg></div><div><strong>Executive risk summary</strong><span>Written for superintendents and boards</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section section-alt" id="pricing">
+  <div class="wrap pricing-grid">
+    <div class="reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2>Simple, transparent pricing, per student per year.</h2>
+      <p class="lead">A full-time Director of Technology costs about $140k in salary, or $195k+ with benefits and overhead. Compass CTO delivers executive leadership for a fraction of that.</p>
+      <div class="compare">
+        <div class="compare-row"><span>Full-time Director of Technology</span><strong>$195k+</strong></div>
+        <div class="compare-row hl"><span>Compass CTO, 5,000 students, Full Stack</span><strong>from $45k</strong></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="table-wrap">
+        <table>
+          <caption>Illustrative annual investment</caption>
+          <thead>
+            <tr><th scope="col">Enrollment</th><th scope="col">Standard</th><th scope="col">+ Cyber</th><th scope="col">Full Stack</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">2,000 students</th><td>$10k</td><td>$14k</td><td class="hl">$18k</td></tr>
+            <tr><th scope="row">5,000 students</th><td>$25k</td><td>$35k</td><td class="hl">$45k</td></tr>
+            <tr><th scope="row">10,000 students</th><td>$50k</td><td>$70k</td><td class="hl">$90k</td></tr>
+          </tbody>
+        </table>
+        <div class="table-foot"><svg><use href="#i-info"/></svg><p>"Starting at" figures for illustration only. Final pricing is set per engagement. Billing is annual and paid upfront before service begins.</p></div>
+      </div>
+      <p style="margin-top:22px;color:var(--muted)">Every district is different. <a href="#contact" style="color:var(--navy-700);font-weight:600">Request a Technology Health Assessment</a> and we'll scope the right tier for your enrollment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="portrait reveal">
+      <!-- Placeholder: replace with a professional headshot of Lincoln -->
+      <svg viewBox="0 0 400 500" role="img" aria-label="Portrait placeholder">
+        <g stroke="#ffffff" stroke-opacity=".07" fill="none">
+          <circle cx="200" cy="200" r="90"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="240"/>
+        </g>
+        <circle cx="200" cy="175" r="62" fill="#ffffff" fill-opacity=".12"/>
+        <path d="M80 420c10-80 60-125 120-125s110 45 120 125z" fill="#ffffff" fill-opacity=".12"/>
+      </svg>
+      <div class="portrait-tag"><strong>Lincoln Mahabir</strong><span>Founder · Compass CTO</span></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2>Two decades of K–12 technology leadership, now available to your district.</h2>
+      <p class="body">Compass CTO is led by Lincoln Mahabir, who spent more than 20 years as a technology director for K–12 school districts. He oversaw networks and infrastructure, cybersecurity, software deployment, teacher training, and classroom technology for thousands of students.</p>
+      <p class="body">Compass CTO brings that executive experience to districts and schools that need strategic leadership without the cost and commitment of a full-time hire.</p>
+      <div class="expertise">
+        <div><svg><use href="#i-globe"/></svg>Networks &amp; infrastructure</div>
+        <div><svg><use href="#i-shield"/></svg>Cybersecurity</div>
+        <div><svg><use href="#i-layers"/></svg>Software deployment</div>
+        <div><svg><use href="#i-school"/></svg>Teacher training</div>
+        <div><svg><use href="#i-calls"/></svg>Classroom technology</div>
+        <div><svg><use href="#i-route"/></svg>Strategic planning</div>
+      </div>
+      <p class="partner-line">We partner with your existing IT staff and managed service providers. Our job is to strengthen what you already have, not replace it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk about your district's technology.</h2>
+      <p class="lead">The best first step is a Technology Health Assessment. Reach out and we'll set up a conversation.</p>
+      <div class="contact-direct">
+        <a href="mailto:lincoln@compasscto.com"><svg><use href="#i-mail"/></svg>lincoln@compasscto.com</a>
+        <div><svg><use href="#i-globe"/></svg>compasscto.com</div>
+      </div>
+    </div>
+    <form class="reveal" id="contact-form" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-title">Title</label><input id="f-title" name="title" autocomplete="organization-title" placeholder="e.g. Superintendent"></div>
+      <div class="field"><label for="f-org">District / School</label><input id="f-org" name="org" autocomplete="organization" required></div>
+      <div class="field"><label for="f-enroll">Enrollment (approx.)</label>
+        <select id="f-enroll" name="enrollment">
+          <option value="">Select a range</option>
+          <option>Under 1,000</option>
+          <option>1,000–2,500</option>
+          <option>2,500–5,000</option>
+          <option>5,000–10,000</option>
+          <option>10,000+</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="What's on your technology agenda this year?"></textarea></div>
+      <button class="btn btn-navy" type="submit">Request a Technology Health Assessment <svg><use href="#i-arrow"/></svg></button>
+      <p class="form-status" id="form-status" role="status"></p>
+      <p class="form-note">Submitting opens your email app with this message addressed to lincoln@compasscto.com.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top" aria-label="Compass CTO home">
+      <svg style="color:#fff;width:28px;height:28px"><use href="#i-compass"/></svg>
+      <span class="brand-name">Compass <span>CTO</span></span>
+    </a>
+    <p>IT professional services &amp; contracted Director of Technology for K–12 schools.</p>
+    <p>© <span id="yr">2026</span> Compass CTO LLC · <a href="mailto:lincoln@compasscto.com">lincoln@compasscto.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+
+  var toggle=document.querySelector('.nav-toggle'), links=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',open);
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.closest('a')){links.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
+  });
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+
+  var form=document.getElementById('contact-form'), status=document.getElementById('form-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=form.elements;
+    if(!f.name.value.trim()||!f.org.value.trim()){
+      status.textContent='Please add your name and district or school.';
+      (f.name.value.trim()?f.org:f.name).focus();
+      return;
+    }
+    var body=[
+      'Name: '+f.name.value,
+      'Title: '+f.title.value,
+      'District / School: '+f.org.value,
+      'Enrollment (approx.): '+f.enrollment.value,
+      '',
+      f.message.value
+    ].join('\n');
+    window.location.href='mailto:lincoln@compasscto.com?subject='+encodeURIComponent('Technology Health Assessment request: '+f.org.value)+'&body='+encodeURIComponent(body);
+    status.textContent='Opening your email app…';
+  });
+})();
+</script>
+</body>
+</html>
