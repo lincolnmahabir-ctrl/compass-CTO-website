@@ -696,9 +696,10 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
     </div>
     <form class="reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" novalidate>
       <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="subject" value="New Technology Health Assessment request">
       <p hidden><label>Leave this empty <input name="company"></label></p>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="f-title">Title</label><input id="f-title" name="title" autocomplete="organization-title" placeholder="e.g. Superintendent"></div>
+      <div class="field"><label for="f-title">Title</label><input id="f-title" name="job_title" autocomplete="organization-title" placeholder="e.g. Superintendent"></div>
       <div class="field"><label for="f-org">District / School</label><input id="f-org" name="org" autocomplete="organization" required></div>
       <div class="field"><label for="f-enroll">Enrollment (approx.)</label>
         <select id="f-enroll" name="enrollment">
@@ -761,6 +762,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       (f.name.value.trim()?f.org:f.name).focus();
       return;
     }
+    f.subject.value='New Technology Health Assessment request: '+f.org.value.trim();
     var btn=form.querySelector('button[type=submit]');
     btn.disabled=true;
     status.textContent='Sending…';
@@ -774,7 +776,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
         // Fallback when the form service is unavailable: hand off to the visitor's email app
         var body=[
           'Name: '+f.name.value,
-          'Title: '+f.title.value,
+          'Title: '+f.job_title.value,
           'District / School: '+f.org.value,
           'Enrollment (approx.): '+f.enrollment.value,
           '',
