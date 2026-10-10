@@ -215,7 +215,7 @@ td.hl{color:var(--navy-700)}
 /* About */
 .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center}
 .portrait{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,var(--navy-800),var(--navy-950))}
-.portrait svg{width:100%;height:100%}
+.portrait img{width:100%;height:100%;object-fit:cover}
 .portrait-tag{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,255,255,.96);border-radius:14px;padding:16px 18px;color:var(--ink)}
 .portrait-tag strong{display:block;font-family:var(--serif);font-size:20px}
 .portrait-tag span{font-size:14px;color:var(--muted)}
@@ -645,14 +645,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
 <section class="section" id="about">
   <div class="wrap about-grid">
     <div class="portrait reveal">
-      <!-- Placeholder: replace with a professional headshot of Lincoln -->
-      <svg viewBox="0 0 400 500" role="img" aria-label="Portrait placeholder">
-        <g stroke="#ffffff" stroke-opacity=".07" fill="none">
-          <circle cx="200" cy="200" r="90"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="240"/>
-        </g>
-        <circle cx="200" cy="175" r="62" fill="#ffffff" fill-opacity=".12"/>
-        <path d="M80 420c10-80 60-125 120-125s110 45 120 125z" fill="#ffffff" fill-opacity=".12"/>
-      </svg>
+      <img src="images/lincoln-mahabir.jpg" alt="Lincoln Mahabir, founder of Compass CTO" width="960" height="1200" loading="lazy" decoding="async">
       <div class="portrait-tag"><strong>Lincoln Mahabir</strong><span>Founder · Compass CTO</span></div>
     </div>
     <div class="reveal">
