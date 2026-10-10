@@ -73,6 +73,7 @@ p{margin:0}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
 .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:15px;font-weight:500}
 .nav-links a:hover{color:#fff}
+.nav-links a.btn-gold,.nav-links a.btn-gold:hover{color:var(--navy-950)}
 .nav-links .btn{padding:10px 18px;font-size:14px}
 .nav-toggle{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
 .nav-toggle svg{width:26px;height:26px}
@@ -240,6 +241,7 @@ form{background:var(--surface);color:var(--text);border-radius:20px;padding:36px
 .field{display:grid;gap:6px}
 .field.full{grid-column:1/-1}
 label{font-size:14px;font-weight:600;color:var(--navy-900)}
+label .optional{font-weight:400;color:var(--slate-500)}
 input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--slate-200);border-radius:10px;background:var(--paper);color:var(--text);width:100%}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(42,157,143,.18)}
 textarea{min-height:120px;resize:vertical}
@@ -440,7 +442,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       <div class="bar-row">
         <div class="bar-label"><span>Full-time Director of Technology</span><strong>$195k+</strong></div>
         <div class="bar"><span class="full"></span></div>
-        <p class="cost-note">~$140k salary plus benefits and overhead</p>
+        <p class="cost-note">Estimate: ~$140k salary plus benefits and overhead</p>
       </div>
       <div class="bar-row">
         <div class="bar-label"><span>Compass CTO · Full Stack with AI</span><strong>from $45k</strong></div>
@@ -597,7 +599,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       <div>
         <p class="eyebrow">Where every engagement begins</p>
         <h2>Start with a Technology Health Assessment.</h2>
-        <p>A fixed-fee engagement that gives you a clear, board-ready picture of your technology program before you commit to anything ongoing.</p>
+        <p>A fixed-fee engagement that gives you a clear, board-ready picture of your technology program before you commit to anything ongoing. We confirm scope, fee, and timing with you before any work begins.</p>
         <div class="hero-ctas"><a class="btn btn-gold" href="#contact">Request your assessment <svg><use href="#i-arrow"/></svg></a></div>
       </div>
       <div class="deliverables">
@@ -615,7 +617,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
     <div class="reveal">
       <p class="eyebrow">Pricing</p>
       <h2>Simple, transparent pricing, per student per year.</h2>
-      <p class="lead">A full-time Director of Technology costs about $140k in salary, or $195k+ with benefits and overhead. Compass CTO delivers executive leadership for a fraction of that.</p>
+      <p class="lead">We estimate a full-time Director of Technology costs about $140k in salary, or $195k+ with benefits and overhead. Compass CTO delivers executive leadership for a fraction of that.</p>
       <div class="compare">
         <div class="compare-row"><span>Full-time Director of Technology</span><strong>$195k+</strong></div>
         <div class="compare-row hl"><span>Compass CTO, 5,000 students, Full Stack</span><strong>from $45k</strong></div>
@@ -685,6 +687,8 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="f-title">Title</label><input id="f-title" name="job_title" autocomplete="organization-title" placeholder="e.g. Superintendent"></div>
       <div class="field"><label for="f-org">District / School</label><input id="f-org" name="org" autocomplete="organization" required></div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="name@district.org" required></div>
+      <div class="field"><label for="f-phone">Phone <span class="optional">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
       <div class="field"><label for="f-enroll">Enrollment (approx.)</label>
         <select id="f-enroll" name="enrollment">
           <option value="">Select a range</option>
@@ -698,7 +702,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="What's on your technology agenda this year?"></textarea></div>
       <button class="btn btn-navy" type="submit"><span class="label-long">Request a Technology Health Assessment</span><span class="label-short">Request an Assessment</span> <svg><use href="#i-arrow"/></svg></button>
       <p class="form-status" id="form-status" role="status"></p>
-      <p class="form-note">Prefer email? Write to <a href="mailto:lincoln@compasscto.com" style="color:var(--navy-700)">lincoln@compasscto.com</a>.</p>
+      <p class="form-note">We'll confirm scope, fee, and timing with you before you decide anything. Prefer email? Write to <a href="mailto:lincoln@compasscto.com" style="color:var(--navy-700)">lincoln@compasscto.com</a>.</p>
     </form>
   </div>
 </section>
@@ -741,9 +745,10 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var f=form.elements;
-    if(!f.name.value.trim()||!f.org.value.trim()){
-      status.textContent='Please add your name and district or school.';
-      (f.name.value.trim()?f.org:f.name).focus();
+    var missing=[f.name,f.org,f.email].filter(function(el){return !el.value.trim()||!el.checkValidity();});
+    if(missing.length){
+      status.textContent=missing[0]===f.email&&f.email.value.trim()?'Please check your email address.':'Please add your name, district or school, and work email.';
+      missing[0].focus();
       return;
     }
     f.subject.value='New Technology Health Assessment request: '+f.org.value.trim();
@@ -762,6 +767,8 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
           'Name: '+f.name.value,
           'Title: '+f.job_title.value,
           'District / School: '+f.org.value,
+          'Email: '+f.email.value,
+          'Phone: '+f.phone.value,
           'Enrollment (approx.): '+f.enrollment.value,
           '',
           f.message.value
