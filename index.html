@@ -60,6 +60,7 @@ p{margin:0}
 .btn-navy{background:var(--navy-900);color:#fff}
 .btn-navy:hover{background:var(--navy-800)}
 .btn svg{width:16px;height:16px}
+.label-short{display:none}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
 
 /* ---------- Header ---------- */
@@ -300,6 +301,8 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
   .table-foot{padding:16px 12px}
   .cost-card,.panel{padding:26px}
   .hero-ctas .btn{width:100%;justify-content:center}
+  .label-long{display:none}
+  .label-short{display:inline}
 }
 </style>
 </head>
@@ -372,7 +375,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
       <h1>The technology director your district needs, <em>at a fraction of the cost.</em></h1>
       <p class="lead">Compass CTO embeds a seasoned technology director with your team, leading strategy, cybersecurity, vendor oversight, and AI policy. We work alongside your existing staff and MSP and never replace them.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#contact">Request a Technology Health Assessment <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-gold" href="#contact"><span class="label-long">Request a Technology Health Assessment</span><span class="label-short">Request an Assessment</span> <svg><use href="#i-arrow"/></svg></a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
     </div>
@@ -700,7 +703,7 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.6);border-top:1px soli
         </select>
       </div>
       <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="What's on your technology agenda this year?"></textarea></div>
-      <button class="btn btn-navy" type="submit">Request a Technology Health Assessment <svg><use href="#i-arrow"/></svg></button>
+      <button class="btn btn-navy" type="submit"><span class="label-long">Request a Technology Health Assessment</span><span class="label-short">Request an Assessment</span> <svg><use href="#i-arrow"/></svg></button>
       <p class="form-status" id="form-status" role="status"></p>
       <p class="form-note">Prefer email? Write to <a href="mailto:lincoln@compasscto.com" style="color:var(--navy-700)">lincoln@compasscto.com</a>.</p>
     </form>
